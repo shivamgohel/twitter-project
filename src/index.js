@@ -1,8 +1,8 @@
-const express = require("express");
+import express from "express";
 
-const { serverConfig, logger } = require("./config/index");
-const connectToMongo = require("./config/mongoose");
-const apiRoutes = require("./routes/index");
+import { serverConfig, logger } from "./config/index.js";
+import connectToMongo from "./config/mongoose.js";
+import apiRoutes from "./routes/index.js";
 
 const app = express();
 

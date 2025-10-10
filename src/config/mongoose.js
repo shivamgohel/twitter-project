@@ -1,6 +1,7 @@
-const mongoose = require("mongoose");
-const serverConfig = require("./server-config");
-const logger = require("./logger-config");
+import mongoose from "mongoose";
+
+import serverConfig from "./server-config.js";
+import logger from "./logger-config.js";
 
 const connectToMongo = async () => {
   try {
@@ -12,4 +13,4 @@ const connectToMongo = async () => {
   }
 };
 
-module.exports = connectToMongo;
+export default connectToMongo;
