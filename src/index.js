@@ -3,6 +3,7 @@ import express from "express";
 import { serverConfig, logger } from "./config/index.js";
 import connectToMongo from "./config/mongoose.js";
 import apiRoutes from "./routes/index.js";
+import "./config/passport-jwt-strategy.js";
 
 const app = express();
 
