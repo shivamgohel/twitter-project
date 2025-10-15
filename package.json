@@ -1,7 +1,7 @@
 {
   "name": "twitter-project",
   "version": "1.0.0",
-  "description": "",
+  "description": "A Twitter-like social media backend with features including user authentication, tweeting, liking, commenting, and image uploads using AWS S3.",
   "type": "module",
   "main": "index.js",
   "scripts": {
