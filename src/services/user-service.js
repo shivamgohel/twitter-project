@@ -1,5 +1,9 @@
 import { UserRepository } from "../repository/index.js";
 import logger from "../config/logger-config.js";
+import jwt from "jsonwebtoken";
+import dotenv from "dotenv";
+
+dotenv.config();
 
 class UserService {
   constructor() {
@@ -48,8 +52,15 @@ class UserService {
         return null;
       }
 
+      // ✅ Generate JWT
+      const token = jwt.sign(
+        { id: user._id }, // payload
+        process.env.JWT_SECRET,
+        { expiresIn: "1d" } // token expires in 1 day
+      );
+
       logger.info(`✅ User authenticated: ${email}`);
-      return user;
+      return { user, token };
     } catch (error) {
       logger.error("❌ Error during user authentication", error);
       throw error;

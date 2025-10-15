@@ -48,21 +48,29 @@ class UserController {
   async loginUser(req, res) {
     try {
       const { email, password } = req.body;
-      const user = await userService.authenticateUser(email, password);
 
-      if (!user) {
+      const result = await userService.authenticateUser(email, password);
+
+      if (!result) {
         logger.warn(`Authentication failed for email: ${email}`);
         return res
           .status(StatusCodes.UNAUTHORIZED)
           .json({ success: false, message: "Invalid email or password" });
       }
 
+      const { user, token } = result;
+
+      // Remove password before sending user object
       const userObject = user.toObject();
       delete userObject.password;
 
-      return res
-        .status(StatusCodes.OK)
-        .json({ success: true, data: userObject });
+      return res.status(StatusCodes.OK).json({
+        success: true,
+        data: {
+          user: userObject,
+          token,
+        },
+      });
     } catch (error) {
       logger.error("Error during user login", error);
       return res
