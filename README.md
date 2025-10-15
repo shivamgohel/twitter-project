@@ -1,6 +1,24 @@
 # 🐦 Twitter Project
 
-## ✅ Core Features & API Endpoints
+## About
+
+**Twitter Project** is a full-featured backend API inspired by Twitter, built with Node.js, Express, and MongoDB. It supports user authentication (JWT & Passport), tweeting, commenting (including threaded comments), liking tweets and comments, and image uploads directly to AWS S3.
+
+The project demonstrates best practices in REST API design, middleware usage, secure authentication, and scalable file handling with cloud storage. It’s perfect as a learning resource or starter template for social media style applications.
+
+---
+
+## Tech Stack
+
+- Node.js & Express.js
+- MongoDB with Mongoose
+- JWT Authentication & Passport.js
+- AWS S3 for image uploads
+- Multer & Multer-S3 for multipart form data handling
+
+---
+
+## ✅ Core Features
 
 ---
 
@@ -78,25 +96,7 @@
 
 ---
 
-## About
-
-**Twitter Project** is a full-featured backend API inspired by Twitter, built with Node.js, Express, and MongoDB. It supports user authentication (JWT & Passport), tweeting, commenting (including threaded comments), liking tweets and comments, and image uploads directly to AWS S3.
-
-The project demonstrates best practices in REST API design, middleware usage, secure authentication, and scalable file handling with cloud storage. It’s perfect as a learning resource or starter template for social media style applications.
-
----
-
-## Tech Stack
-
-- Node.js & Express.js
-- MongoDB with Mongoose
-- JWT Authentication & Passport.js
-- AWS S3 for image uploads
-- Multer & Multer-S3 for multipart form data handling
-
----
-
-# 🐦 Twitter Clone — REST API Endpoints
+# 📌 All API Endpoints
 
 ## 🧑‍💻 Users
 
@@ -160,7 +160,6 @@ The project demonstrates best practices in REST API design, middleware usage, se
 
 ## Notes
 
-- Follow/Unfollow user functionality is part of the user profile features but is not yet exposed via specific API routes in this version.
 - Authentication middleware (`authenticateJwt`) protects routes that require a logged-in user.
 - Image upload expects multipart form-data with key `image` and uploads to AWS S3 with public access.
 
